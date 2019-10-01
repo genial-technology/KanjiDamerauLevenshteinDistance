@@ -1,0 +1,93 @@
+{
+  "title": "漢字の偏旁冠脚・画数データのJSON Schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "hbkkSchema.json",
+  "type": "array",
+  "items": {
+    "title": "Kanji",
+    "description": "漢字１文字",
+    "$id": "/items",
+    "type": "object",
+    "properties": {
+      "original": {
+        "title": "Kanji original expression",
+        "description": "漢字１文字. 文字数のカウント方法が不明なためmaxLengthは設定できない.",
+        "$id": "/items/properties/original",
+        "type": "string",
+        "minLength": 1,
+        "examples": [
+          "往",
+          "文"
+        ]
+      },
+      "steps": {
+        "title": "Steps",
+        "description": "漢字の分解・変換",
+        "$id": "/items/properties/steps",
+        "type": "array",
+        "items": {
+          "title": "Step",
+          "description": "漢字の分解・変換の段階",
+          "$id": "/items/properties/steps/items",
+          "type": "object",
+          "properties": {
+            "step": {
+              "title": "Nth step",
+              "description": "漢字の分解・変換を何段階行ったか",
+              "$id": "/items/properties/steps/items/properties/step",
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "examples": [0, 1, 2]
+            },
+            "hbkkList": {
+              "title": "The list of a hen-bou-kan-kyaku and the number of its strokes",
+              "description": "偏旁冠脚と画数のリスト",
+              "$id": "/items/properties/steps/items/properties/hbkkList",
+              "type": "array",
+              "items": {
+                "title": "A hen-bou-kan-kyaku and the number of its strokes",
+                "description": "偏旁冠脚と画数",
+                "$id": "/items/properties/steps/items/properties/hbkkList/items",
+                "type": "object",
+                "properties": {
+                  "hbkk": {
+                    "title": "Hen-bou-kan-kyaku",
+                    "description": "偏旁冠脚",
+                    "$id": "/items/properties/steps/items/properties/hbkkList/items/properties/hbkk",
+                    "type": "string",
+                    "minLength": 1,
+                    "examples": [
+                      "彳",
+                      "主"
+                    ]
+                  },
+                  "numOfStrokes": {
+                    "title": "The number of strokes",
+                    "description": "画数",
+                    "$id": "/items/properties/steps/items/properties/hbkkList/items/properties/numOfStrokes",
+                    "type": "integer",
+                    "minimum": 1,
+                    "examples": [1, 2, 3]
+                  }
+                },
+                "required": [
+                  "hbkk",
+                  "numOfStrokes"
+                ]
+              }
+            }
+          },
+          "required": [
+            "step",
+            "hbkkList"
+          ]
+        }
+      }
+    },
+    "required": [
+      "original",
+      "steps"
+    ]
+  }
+}

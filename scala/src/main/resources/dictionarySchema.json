@@ -1,0 +1,236 @@
+{
+  "title": "Dictionary JSON Schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dictionarySchema.json",
+  "type": "object",
+  "properties": {
+    "title": {
+      "title": "Dictionary Name",
+      "description": "dictionary name",
+      "$id": "/properties/title",
+      "type": "string",
+      "examples": [
+        "法律用語辞書"
+      ]
+    },
+    "version": {
+      "title": "Version",
+      "description": "version",
+      "$id": "/properties/version",
+      "type": "string",
+      "default": "0.0.1-SNAPSHOT",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(-(SNAPSHOT|RC[0-9]+))?$",
+      "examples": [
+        "0.0.1-SNAPSHOT", "12.34.56", "1.23.456-RC789"
+      ]
+    },
+    "purpose": {
+      "title": "Purpose List",
+      "description": "purpose list",
+      "$id": "/properties/purpose",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "title": "Purpose",
+        "description": "purpose",
+        "type": "string",
+        "default": "WordList",
+        "enum": [
+          "WordList",
+          "ErrorDetection",
+          "ErrorCorrection",
+          "EntityIdentification",
+          "ErrorAnalysisForErrorDetection",
+          "ErrorAnalysisForErrorCorrection",
+          "ErrorAnalysisForEntityIdentification"
+        ]
+      }
+    },
+    "vocabulary": {
+      "title": "Vocabulary",
+      "description": "vocabulary",
+      "$id": "/properties/vocabulary",
+      "type": "array",
+      "items": {
+        "title": "Entry Words",
+        "description": "entry words",
+        "$id": "/properties/vocabulary/items",
+        "type": "object",
+        "properties": {
+          "entry": {
+            "title": "Entry Word",
+            "description": "entry word",
+            "$id": "/properties/vocabulary/items/properties/entry",
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "注文書"
+            ]
+          },
+          "representativeNotation": {
+            "title": "Representative Notation",
+            "description": "representative notation, 代表表記",
+            "$id": "/properties/vocabulary/items/properties/representativeNotation",
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "注文書"
+            ]
+          },
+          "orthographicalVariantType": {
+            "title": "Orthographical Variant Type",
+            "description": "orthographical variant type, see http://www.cjk.org/cjk/reference/japvar.htm",
+            "$id": "/properties/vocabulary/items/properties/orthographicalVariantType",
+            "type": "string",
+            "enum": [
+              "The Representative Notation",
+              "Irregular Orthography",
+              "Okurigana Variant",
+              "Cross-Script Orthographic Variants",
+              "Kanji Variants-Abbreviated form",
+              "Kanji Variants-Variant form",
+              "Kanji Variants-Traditional form",
+              "Kanji Variants-Phonetic substitute",
+              "Kana Variants-Macron",
+              "Kana Variants-Long vowels",
+              "Kana Variants-Multiple kana",
+              "Kana Variants-Traditional",
+              "Kana Variants-Du vs Zu",
+              "Kun Homophones",
+              "Synonyms",
+              "Abbreviations",
+              "Loanwords",
+              "Cross-language",
+              "Other"
+            ]
+          },
+          "frequency": {
+            "title": "Frequency",
+            "description": "frequency",
+            "$id": "/properties/vocabulary/items/properties/frequency",
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "examples": [0, 1, 2]
+          },
+          "labelForAddress": {
+            "title": "Label for Corporation Name and Address",
+            "description": "label for corporation name and address",
+            "$id": "/properties/vocabulary/items/properties/labelForAddress",
+            "type": "string",
+            "enum": [
+              "prefectureName",
+              "cityName",
+              "streetNumber",
+              "corporationName"
+            ]
+          },
+          "theNextLargerArea": {
+            "title": "The Next Larger Area than This",
+            "description": "the next larger area than this",
+            "$id": "/properties/vocabulary/items/properties/theNextLargerArea",
+            "type": "string",
+            "minLength": 1,
+            "default": "日本国",
+            "examples": [
+              "あきる野市",
+              "東京都",
+              "日本国"
+            ]
+          }
+        },
+        "required": [
+          "entry"
+        ]
+      }
+    },
+    "error": {
+      "title": "Error",
+      "description": "error",
+      "$id": "/properties/error",
+      "type": "array",
+      "items": {
+        "title": "Entry Errors",
+        "description": "entry errors",
+        "$id": "/properties/error/items",
+        "type": "object",
+        "properties": {
+          "entry": {
+            "title": "Entry Error",
+            "description": "entry error",
+            "$id": "/properties/error/items/properties/entry",
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "注問書",
+              "注悶書",
+              "往文書",
+              "往婦"
+            ]
+          },
+          "correction": {
+            "title": "Correction",
+            "description": "correction",
+            "$id": "/properties/error/items/properties/correction",
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "注文書",
+              "注問書"
+            ]
+          },
+          "isTheCorrectionOrthographical": {
+            "title": "Is The Correction Orthographical?",
+            "description": "Is the correction orthographical?",
+            "$id": "/properties/error/items/properties/isTheCorrectionOrthographical",
+            "type": "boolean",
+            "default": true,
+            "examples": [true, false]
+          },
+          "frequency": {
+            "title": "Frequency",
+            "description": "frequency",
+            "$id": "/properties/error/items/properties/frequency",
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "examples": [0, 1, 2]
+          },
+          "factor": {
+            "title": "Error Factors",
+            "description": "error factors",
+            "$id": "/properties/error/items/properties/factor",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "title": "Error Factor",
+              "description": "error factor",
+              "$id": "/properties/error/items/properties/factor/items",
+              "type": "string",
+              "enum": [
+                "typo",
+                "ocr-hbkk",
+                "ocr-fused neighbors into ligature",
+                "ocr-separated ligature into neighbors",
+                "ocr-other"
+              ]
+            }
+          }
+        },
+        "required": [
+          "entry",
+          "correction",
+          "isTheCorrectionOrthographical",
+          "frequency",
+          "factor"
+        ]
+      }
+    }
+  },
+  "required": [
+    "title",
+    "version",
+    "purpose",
+    "vocabulary"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "title": "法律用語辞書",
+  "version": "0.0.1-SNAPSHOT",
+  "purpose": [
+    "WordList",
+    "ErrorDetection",
+    "ErrorCorrection",
+    "EntityIdentification",
+    "ErrorAnalysisForErrorDetection",
+    "ErrorAnalysisForErrorCorrection",
+    "ErrorAnalysisForEntityIdentification"
+  ],
+  "vocabulary": [
+    {
+      "entry": "注文書",
+      "representativeNotation": "注文書",
+      "orthographicalVariantType": "The Representative Notation",
+      "frequency": 3
+    }
+  ],
+  "error": [
+    {
+      "entry": "注問書",
+      "correction": "注文書",
+      "isTheCorrectionOrthographical": true,
+      "frequency": 1,
+      "factor": [
+        "typo"
+      ]
+    },
+    {
+      "entry": "注悶書",
+      "correction": "注問書",
+      "isTheCorrectionOrthographical": false,
+      "frequency": 1,
+      "factor": [
+        "ocr-hbkk"
+      ]
+    },
+    {
+      "entry": "往文書",
+      "correction": "注文書",
+      "isTheCorrectionOrthographical": true,
+      "frequency": 1,
+      "factor": [
+        "ocr-hbkk"
+      ]
+    },
+    {
+      "entry": "往婦",
+      "correction": "注文書",
+      "isTheCorrectionOrthographical": true,
+      "frequency": 1,
+      "factor": [
+        "ocr-hbkk",
+        "ocr-fused neighbors into ligature"
+      ]
+    }
+  ]
+}

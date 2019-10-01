@@ -1,0 +1,12 @@
+{
+  "title": "法律用語辞書",
+  "version": "0.0.1-SNAPSHOT",
+  "purpose": [
+    "WordList"
+  ],
+  "vocabulary": [
+    {
+      "entry": "注文書"
+    }
+  ]
+}

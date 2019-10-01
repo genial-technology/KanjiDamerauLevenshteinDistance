@@ -1,0 +1,39 @@
+{
+  "title": "地名・会社名辞書",
+  "version": "0.0.1-SNAPSHOT",
+  "purpose": [
+    "WordList"
+  ],
+  "vocabulary": [
+    {
+      "entry": "日本基督教団弘前南教会",
+      "labelForAddress": "corporationName",
+      "theNextLargerArea": "大字北園１丁目１０番地１"
+    },
+    {
+      "entry": "大字北園１丁目１０番地１",
+      "labelForAddress": "streetName",
+      "theNextLargerArea": "あきる野市"
+    },
+    {
+      "entry": "弘前市",
+      "labelForAddress": "cityName",
+      "theNextLargerArea": "青森県"
+    },
+    {
+      "entry": "青森県",
+      "labelForAddress": "prefectureName",
+      "theNextLargerArea": "日本国"
+    },
+    {
+      "entry": "府中市",
+      "labelForAddress": "cityName",
+      "theNextLargerArea": "広島県"
+    },
+    {
+      "entry": "府中市",
+      "labelForAddress": "cityName",
+      "theNextLargerArea": "東京都"
+    }
+  ]
+}
