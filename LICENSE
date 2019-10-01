@@ -1,3 +1,16 @@
+Copyright 2019 Genial Technology
+
+   Licensed under the GNU General Public License, Version 3 (the "License");
+   you may not use this file except in compliance with the License.
+
+   In addition, the kanji radical dictionary (scala/src/main/resources/hbkk.json)
+   is extracted and modified from a website, Kanji Jiten Online (漢字辞典オンライン),
+   https://kanji.jitenon.jp/ with a great help by the manager Mr. Yuki Yoshioka.
+   This dictionary file is under a strict restriction and never be used as part of
+   a dictionary service, such as a dictionary website or a dictionary web application.
+
+*********************************************************************
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
