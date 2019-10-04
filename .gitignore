@@ -34,3 +34,5 @@ ensime-langserver.log
 pc.stdout.log
 hs_err_pid*
 yarn.lock
+src/main/resources/dic/
+src/main/resources/ocrResults/

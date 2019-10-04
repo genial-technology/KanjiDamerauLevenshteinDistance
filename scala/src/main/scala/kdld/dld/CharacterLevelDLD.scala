@@ -20,9 +20,13 @@ class CharacterLevelDLD(characterLevelCostParameters: CostParameters,
       case replace: Replace[Kanji] =>
         val source: Kanji = replace.element1
         val target: Kanji = replace.element2
-        val (step1: Step, step2: Step) = source.comparableStep(target)
-        val result: Result = hbkkLevelDLD.result(step1, step2)
-        negativeFeedback += characterLevelCostParameters.replaceCost * (1 - result.dissimilarity)
+        source.comparableStep(target) foreach {
+          case (step1: Step, step2: Step) =>
+            val result: Result = hbkkLevelDLD.result(step1, step2)
+            negativeFeedback += characterLevelCostParameters.replaceCost * (1 - result.dissimilarity)
+          case _ =>
+            // Do nothing
+        }
       case _ =>
       // Do nothing
     }

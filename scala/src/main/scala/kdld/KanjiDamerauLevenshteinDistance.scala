@@ -57,7 +57,8 @@ object KanjiDamerauLevenshteinDistance extends App {
               )
             )
           )
-        )
+        ),
+        "往".codePointAt(0)
       ),
       Kanji(
         Array[Step](
@@ -81,7 +82,8 @@ object KanjiDamerauLevenshteinDistance extends App {
               )
             )
           )
-        )
+        ),
+        "文".codePointAt(0)
       ),
       Kanji(
         Array[Step](
@@ -141,7 +143,8 @@ object KanjiDamerauLevenshteinDistance extends App {
               )
             )
           )
-        )
+        ),
+        "書".codePointAt(0)
       )
     )
   )
@@ -186,7 +189,8 @@ object KanjiDamerauLevenshteinDistance extends App {
               )
             )
           )
-        )
+        ),
+        "注".codePointAt(0)
       ),
       Kanji(
         Array[Step](
@@ -210,7 +214,8 @@ object KanjiDamerauLevenshteinDistance extends App {
               )
             )
           )
-        )
+        ),
+        "文".codePointAt(0)
       ),
       Kanji(
         Array[Step](
@@ -270,7 +275,8 @@ object KanjiDamerauLevenshteinDistance extends App {
               )
             )
           )
-        )
+        ),
+        "書".codePointAt(0)
       )
     )
   )
@@ -299,7 +305,8 @@ object KanjiDamerauLevenshteinDistance extends App {
               )
             )
           )
-        )
+        ),
+        "公".codePointAt(0)
       ),
       Kanji(
         Array[Step](
@@ -323,7 +330,8 @@ object KanjiDamerauLevenshteinDistance extends App {
               )
             )
           )
-        )
+        ),
+        "文".codePointAt(0)
       ),
       Kanji(
         Array[Step](
@@ -383,7 +391,8 @@ object KanjiDamerauLevenshteinDistance extends App {
               )
             )
           )
-        )
+        ),
+        "書".codePointAt(0)
       )
     )
   )

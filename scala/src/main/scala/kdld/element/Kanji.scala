@@ -1,6 +1,6 @@
 package kdld.element
 
-case class Kanji(steps: Array[Step]) {
+case class Kanji(steps: Array[Step], original: Int) {
 
   override def equals(o: Any): Boolean = {
     o match {
@@ -19,7 +19,7 @@ case class Kanji(steps: Array[Step]) {
         1
       ), codePoint)
     } else {
-      ("", -1)
+      (new String(Array[Int](original), 0, 1), original)
     }
   }
 
@@ -32,18 +32,22 @@ case class Kanji(steps: Array[Step]) {
     }
   }
 
-  def comparableStep(kanji: Kanji): (Step, Step) = {
+  def comparableStep(kanji: Kanji): Option[(Step, Step)] = {
     steps foreach { thisStep: Step =>
       kanji.steps foreach { argStep: Step =>
         if (thisStep.partiallyMatches(argStep)) {
-          return (thisStep: Step, argStep: Step)
+          return Option((thisStep: Step, argStep: Step))
         }
       }
     }
-    (steps.last: Step, kanji.steps.last: Step)
+    if (0 < steps.length && 0 < kanji.steps.length) {
+      Option((steps.last: Step, kanji.steps.last: Step))
+    } else {
+      None
+    }
   }
 }
 
 object Kanji {
-  def empty: Kanji = new Kanji(Array.empty[Step])
+  def empty: Kanji = new Kanji(Array.empty[Step], -1)
 }

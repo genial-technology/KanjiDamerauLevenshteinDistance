@@ -7,8 +7,8 @@ class LevenshteinDistance(costParameters: CostParameters) {
   def calculateCost[Element](array1: Array[Element],
                              array2: Array[Element]): (Double, ArrayBuffer[Edit[Element]]) = {
 
-    println(array1.map(_.toString).mkString(", "))
-    println(array2.map(_.toString).mkString(", "))
+    //println(array1.map(_.toString).mkString(", "))
+    //println(array2.map(_.toString).mkString(", "))
 
     val operationList = ArrayBuffer.empty[Edit[Element]]
 
